@@ -1,59 +1,63 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# TECHSOFT 2026 README Placeholder
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 1. Project Identity
+- Project Name: Lex Innovate
+- Competition: TECHSOFT 2026
+- Theme: INNOVATE
+- Subtheme: Social
+- Development Stack: Laravel, Blade, Tailwind CSS, Vite
 
-## About Laravel
+## 2. Team Identity
+- Team Name: [Isi Nama Tim]
+- Institution: [Isi Asal Sekolah / Kampus]
+- Members:
+  - [Nama 1] - Product / Research
+  - [Nama 2] - UI / UX Design
+  - [Nama 3] - Frontend / Backend Development
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 3. Problem Statement
+Lex Innovate dirancang untuk menjawab hambatan akses hukum pada masyarakat umum: bahasa legal yang sulit dipahami, kesulitan menemukan bantuan hukum terdekat, dan minimnya edukasi hak dalam konteks sosial sehari-hari.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 4. Solution Overview
+Platform ini mengubah dokumen hukum menjadi ringkasan sederhana, menampilkan blok risiko dengan kontras tinggi, menyediakan peta bantuan hukum, menghadirkan kartu edukasi "Hak Saya", dan membuka ruang diskusi komunitas berbasis teks.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 5. Core Features
+- Home: landasan misi demokratisasi akses hukum.
+- About: profil tim dan filosofi INNOVATE.
+- Konten:
+  - AI Document Scanner UI
+  - Simplified Summary dengan blok Risiko
+  - Legal Aid Map
+  - Education Cards "Hak Saya"
+  - Viral Justice Feed
+- Contact: formulir triase 3 field.
 
-## Learning Laravel
+## 6. Design Direction
+- Strict flat design: tanpa bayangan, tanpa gradien, tanpa ikon.
+- Tipografi tebal dengan kontainer kontras tinggi.
+- Fokus aksesibilitas WCAG 2.1 AAA.
+- Warna utama: Deep Navy `#1A2B3C` dan Alert Red untuk risiko.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## 7. Technical Notes
+- Responsive untuk mobile, tablet, dan desktop.
+- HTML5 semantik.
+- Navigasi inti dapat dicapai dalam maksimal 3 klik.
+- Dibangun sebagai prototype kompetisi yang siap dikembangkan lebih lanjut.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 8. Setup Instructions
+```bash
+composer install
+npm install
+php artisan serve
+npm run dev
+```
 
-## Laravel Sponsors
+## 9. Demo Assets
+- Demo URL: [Isi Link Demo]
+- Video URL: [Isi Link Video]
+- Presentation Deck: [Isi Link Presentasi]
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 10. Repository Notes
+- Ganti seluruh placeholder sebelum pengumpulan final.
+- Tambahkan screenshot final pada folder dokumentasi jika format lomba memintanya.
+- Sesuaikan identitas tim dan pranala demo sebelum publikasi.
