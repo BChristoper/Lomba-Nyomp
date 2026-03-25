@@ -1,91 +1,136 @@
+@php
+    $lang = request('lang') === 'en' ? 'en' : 'id';
+    $langRoute = ['lang' => $lang];
+    $t = fn (string $id, string $en) => $lang === 'en' ? $en : $id;
+    $routeLang = fn (string $name, array $params = []) => route($name, array_merge($langRoute, $params));
+@endphp
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ $lang }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>@yield('title', 'TECHSOFT 2026 Legal-Tech')</title>
+        <title>@yield('title', $t('Democratizing Justice', 'Democratizing Justice'))</title>
         <meta
             name="description"
-            content="Legal-tech web application for TECHSOFT 2026 under the INNOVATE theme and Social subtheme."
+            content="{{ $t(
+                'Aplikasi legal-tech untuk membantu masyarakat memahami masalah hukum dengan bahasa yang tenang, jelas, dan bisa ditindaklanjuti cepat.',
+                'A legal-tech app that helps people understand legal problems in calm, clear language with actionable next steps.'
+            ) }}"
         >
         @vite('resources/js/app.js')
     </head>
-    <body>
-        <div class="min-h-screen lg:grid lg:grid-cols-[20rem_minmax(0,1fr)]">
-            <aside class="border-b-2 border-[var(--color-line)] bg-[var(--color-surface)] lg:min-h-screen lg:border-b-0 lg:border-r-2">
-                <div class="sticky top-0 flex flex-col gap-8 p-6 md:p-8">
-                    <div class="space-y-4">
-                        <p class="section-kicker">TECHSOFT 2026</p>
-                        <a href="{{ route('home') }}" class="block font-[var(--font-display)] text-3xl font-bold uppercase tracking-[-0.08em] md:text-5xl">
-                            Lex
-                            <br>
-                            Innovate
-                        </a>
-                        <p class="max-w-sm text-[1.125rem] leading-6">
-                            Platform hukum sosial untuk membaca risiko, menemukan bantuan, dan bergerak cepat dalam tiga klik.
-                        </p>
-                    </div>
+    <body class="bg-[var(--color-page)] text-[var(--color-ink)]" data-current-lang="{{ $lang }}">
+        @php
+            $isSafeExit = request()->routeIs('safe-exit');
+        @endphp
 
-                    <nav aria-label="Primary" class="grid grid-cols-4 gap-2 lg:flex lg:flex-col">
-                        <a href="{{ route('home') }}" class="nav-link" data-active="{{ request()->routeIs('home') ? 'true' : 'false' }}">Home</a>
-                        <a href="{{ route('about') }}" class="nav-link" data-active="{{ request()->routeIs('about') ? 'true' : 'false' }}">About</a>
-                        <a href="{{ route('konten') }}" class="nav-link" data-active="{{ request()->routeIs('konten') ? 'true' : 'false' }}">Konten</a>
-                        <a href="{{ route('contact') }}" class="nav-link" data-active="{{ request()->routeIs('contact') ? 'true' : 'false' }}">Contact</a>
-                    </nav>
-
-                    <div class="flat-panel p-5">
-                        <p class="section-kicker">Access Rule</p>
-                        <p class="mt-4 text-[1.125rem] leading-6">
-                            Semua fitur inti berada pada alur:
-                            <span class="font-bold">buka menu</span>,
-                            <span class="font-bold">pilih layanan</span>,
-                            <span class="font-bold">ambil tindakan</span>.
-                        </p>
-                    </div>
-                </div>
-            </aside>
-
-            <div class="flex min-h-screen min-w-0 flex-col">
-                <header class="border-b-2 border-[var(--color-line)] px-6 py-5 md:px-10 lg:px-12">
-                    <div class="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between">
-                        <div class="min-w-0">
-                            <p class="section-kicker">@yield('eyebrow', 'Legal-Tech')</p>
-                            <p class="mt-2 max-w-3xl text-[1.125rem] leading-6 text-[var(--color-ink)]/80">
-                                INNOVATE: Impel Novelty, Navigate, Optimize, Validate, Advance Technological Endeavors.
-                            </p>
-                        </div>
-                        <div class="grid gap-3 xl:w-[28rem]">
-                            <div class="grid gap-3 md:grid-cols-[minmax(0,1fr)_auto]">
-                                <label class="sr-only" for="feature-jump">Fitur Cepat</label>
-                                <select
-                                    id="feature-jump"
-                                    class="quick-select"
-                                    onchange="if (this.value) window.location.href = this.value"
-                                >
-                                    <option value="">Fitur Cepat</option>
-                                    <option value="{{ route('konten') }}#scanner">Scanner Dokumen</option>
-                                    <option value="{{ route('konten') }}#map">Map Bantuan</option>
-                                    <option value="{{ route('konten') }}#education">Hak Saya</option>
-                                    <option value="{{ route('konten') }}#feed">Justice Feed</option>
-                                    <option value="{{ route('contact') }}">Hubungi Bantuan</option>
-                                </select>
-                                <a href="{{ route('contact') }}" class="cta-link text-center">Bantuan</a>
+        @if (! $isSafeExit)
+            <div class="app-shell">
+                <header class="header-shell">
+                    <div class="header-panel">
+                        <div class="flex flex-col gap-4">
+                            <div class="header-top">
+                                <div class="brand-lockup min-w-0">
+                                    <span class="brand-mark" aria-hidden="true">R</span>
+                                    <div class="brand-copy">
+                                        <div class="brand-line">
+                                            <a href="{{ $routeLang('home') }}" class="brand-title">
+                                                {{ $t('Ruang Keadilan', 'Justice Room') }}
+                                            </a>
+                                            <span class="brand-tag">{{ $t('Legal-Tech Indonesia', 'Indonesia Legal-Tech') }}</span>
+                                        </div>
+                                        <p class="brand-meta">
+                                            {{ $t(
+                                                'Pendamping awal untuk kasus seperti penipuan online, kontrak kerja bermasalah, panggilan polisi, konflik keluarga, dan kebutuhan bantuan hukum dasar.',
+                                                'A first-response companion for online fraud, problematic work contracts, police summons, family disputes, and basic legal aid needs.'
+                                            ) }}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="header-actions">
+                                    <div class="language-switch" aria-label="{{ $t('Pilih bahasa', 'Choose language') }}">
+                                        <button
+                                            type="button"
+                                            class="language-chip {{ $lang === 'id' ? 'is-active' : '' }}"
+                                            data-language-option="id"
+                                        >
+                                            ID
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class="language-chip {{ $lang === 'en' ? 'is-active' : '' }}"
+                                            data-language-option="en"
+                                        >
+                                            EN
+                                        </button>
+                                    </div>
+                                    <a href="{{ $routeLang('auth.landing') }}" class="soft-button header-button">{{ $t('Masuk / Daftar', 'Sign In / Register') }}</a>
+                                    <a href="{{ $routeLang('contact') }}" class="soft-button header-button">{{ $t('Hubungi Bantuan', 'Contact Support') }}</a>
+                                    <a href="{{ $routeLang('emergency') }}" class="danger-button header-button header-button-danger">&#128680; {{ $t('Mode Darurat', 'Emergency Mode') }}</a>
+                                </div>
                             </div>
-                            <p class="font-[var(--font-display)] text-lg font-bold uppercase tracking-[0.08em]">Social Subtheme</p>
+
+                            <div class="header-nav-shell">
+                                <nav aria-label="Primary" class="nav-scroll">
+                                    <a href="{{ $routeLang('home') }}" class="nav-pill" data-active="{{ request()->routeIs('home') ? 'true' : 'false' }}">{{ $t('Beranda', 'Home') }}</a>
+                                    <a href="{{ $routeLang('ai-chat') }}" class="nav-pill" data-active="{{ request()->routeIs('ai-chat') ? 'true' : 'false' }}">{{ $t('Tanya AI', 'Ask AI') }}</a>
+                                    <a href="{{ $routeLang('action-guide') }}" class="nav-pill" data-active="{{ request()->routeIs('action-guide') ? 'true' : 'false' }}">{{ $t('Panduan', 'Guide') }}</a>
+                                    <a href="{{ $routeLang('document-scan') }}" class="nav-pill" data-active="{{ request()->routeIs('document-scan') ? 'true' : 'false' }}">{{ $t('Scan Dokumen', 'Scan Document') }}</a>
+                                    <a href="{{ $routeLang('emergency') }}" class="nav-pill" data-active="{{ request()->routeIs('emergency') ? 'true' : 'false' }}">{{ $t('Darurat', 'Emergency') }}</a>
+                                    <a href="{{ $routeLang('contact') }}" class="nav-pill" data-active="{{ request()->routeIs('contact') ? 'true' : 'false' }}">{{ $t('Hubungi', 'Contact') }}</a>
+                                    <a href="{{ $routeLang('auth.landing') }}" class="nav-pill" data-active="{{ request()->routeIs('auth.*') || request()->routeIs('login') || request()->routeIs('register') || request()->routeIs('password.*') ? 'true' : 'false' }}">{{ $t('Akun', 'Account') }}</a>
+                                </nav>
+                            </div>
                         </div>
                     </div>
                 </header>
 
-                <main class="flex-1 min-w-0 px-6 py-8 md:px-10 md:py-10 lg:px-12 lg:py-12">
+                <main class="page-main">
                     @yield('content')
                 </main>
 
-                <footer class="border-t-2 border-[var(--color-line)] px-6 py-6 md:px-10 lg:px-12">
-                    <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-                        <p class="text-[1.125rem] leading-6">Lex Innovate dibangun sebagai konsep legal-tech kompetisi yang memprioritaskan akses, validasi, dan tindakan.</p>
-                        <p class="font-[var(--font-display)] text-lg font-bold uppercase tracking-[0.08em]">Laravel + Tailwind CSS</p>
+                <footer class="mx-auto mt-6 w-full max-w-6xl px-4 pb-6 md:px-6 lg:px-0">
+                    <div class="footer-panel">
+                        <p class="text-[0.95rem] leading-6 text-[var(--color-muted-text)]">
+                            {{ $t(
+                                '3-Tap Rule: dari landing page ke solusi atau langkah nyata dalam maksimal tiga tap.',
+                                '3-Tap Rule: from the landing page to a solution or real next step in three taps or less.'
+                            ) }}
+                        </p>
+                        <p class="text-[0.95rem] font-semibold text-[var(--color-primary)]">{{ $t('Indonesia-first legal-tech', 'Indonesia-first legal-tech') }}</p>
                     </div>
                 </footer>
+            </div>
+
+            @unless (request()->routeIs('emergency'))
+                <a
+                    href="{{ $routeLang('emergency') }}"
+                    class="floating-emergency"
+                    aria-label="{{ $t('Masuk ke mode darurat', 'Open emergency mode') }}"
+                >
+                    &#128680; {{ $t('Darurat', 'Emergency') }}
+                </a>
+            @endunless
+        @else
+            <main class="min-h-screen">
+                @yield('content')
+            </main>
+        @endif
+
+        <div class="language-modal" data-language-modal hidden>
+            <div class="language-modal-card">
+                <p class="eyebrow">Language</p>
+                <h2 class="mt-3 text-[2rem] text-[var(--color-primary)]">{{ $t('Pilih bahasa', 'Choose a language') }}</h2>
+                <p class="mt-3 text-[1.05rem] text-[var(--color-muted-text)]">
+                    {{ $t(
+                        'Pilih bahasa yang ingin dipakai sebelum mulai menggunakan aplikasi.',
+                        'Choose the language you want to use before entering the app.'
+                    ) }}
+                </p>
+                <div class="language-modal-actions mt-6">
+                    <button type="button" class="primary-button" data-language-option="id">Bahasa Indonesia</button>
+                    <button type="button" class="soft-button" data-language-option="en">English</button>
+                </div>
             </div>
         </div>
     </body>

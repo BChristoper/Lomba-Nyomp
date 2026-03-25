@@ -1,7 +1,7 @@
 # TECHSOFT 2026 README Placeholder
 
 ## 1. Project Identity
-- Project Name: Lex Innovate
+- Project Name: Ruang Keadilan
 - Competition: TECHSOFT 2026
 - Theme: INNOVATE
 - Subtheme: Social
@@ -16,35 +16,52 @@
   - [Nama 3] - Frontend / Backend Development
 
 ## 3. Problem Statement
-Lex Innovate dirancang untuk menjawab hambatan akses hukum pada masyarakat umum: bahasa legal yang sulit dipahami, kesulitan menemukan bantuan hukum terdekat, dan minimnya edukasi hak dalam konteks sosial sehari-hari.
+Di Indonesia, akses keadilan sering terhambat oleh bahasa hukum yang elitis dan kompleks. Banyak masyarakat merasa terintimidasi saat membaca dokumen hukum, sehingga berisiko kehilangan waktu, uang, maupun hak mereka. Ruang Keadilan hadir di bawah subtema Social untuk menjembatani kesenjangan tersebut.
 
 ## 4. Solution Overview
-Platform ini mengubah dokumen hukum menjadi ringkasan sederhana, menampilkan blok risiko dengan kontras tinggi, menyediakan peta bantuan hukum, menghadirkan kartu edukasi "Hak Saya", dan membuka ruang diskusi komunitas berbasis teks.
+Ruang Keadilan adalah platform legal-tech yang membantu pengguna memahami masalah hukum dengan Bahasa Manusia, menerima simulasi jawaban AI untuk kasus umum, meninjau risiko dokumen, mengikuti langkah konkret, dan masuk ke mode darurat saat situasi menekan.
 
 ## 5. Core Features
-- Home: landasan misi demokratisasi akses hukum.
-- About: profil tim dan filosofi INNOVATE.
-- Konten:
-  - AI Document Scanner UI
-  - Simplified Summary dengan blok Risiko
-  - Legal Aid Map
-  - Education Cards "Hak Saya"
-  - Viral Justice Feed
-- Contact: formulir triase 3 field.
+- Home: landing page dengan natural-language search dan suggestion kasus.
+- Ask AI:
+  - pengguna bisa mengetik masalah sendiri dengan bahasa sehari-hari;
+  - tersedia beberapa preset kasus seperti penipuan online, kontrak kerja bermasalah, dipanggil polisi, dan teror debt collector;
+  - sistem menampilkan simulasi jawaban AI berupa ringkasan awal, langkah berikutnya, dan dasar hukum yang bisa dibuka bila diperlukan.
+- Action Guide: checklist langkah, draft aksi, dan progres kasus.
+- Document Scan: ringkasan kontrak dengan logika traffic light.
+- Emergency Mode: flash-card satu hak penting per layar.
+- Contact: formulir bantuan singkat dengan telepon wajib dan email opsional.
+- Account Flow: login, register, forgot password, dan OTP reset frontend-only.
+- Language Support:
+  - saat pertama kali masuk, pengguna diminta memilih Bahasa Indonesia atau English;
+  - pilihan bahasa disimpan di browser dan dipakai di halaman-halaman utama aplikasi.
 
 ## 6. Design Direction
-- Strict flat design: tanpa bayangan, tanpa gradien, tanpa ikon.
-- Tipografi tebal dengan kontainer kontras tinggi.
+- Calm UI untuk situasi stres tinggi.
+- Hierarki tipografi kuat dengan panel modern dan ringan.
+- Navigasi inti dijaga tetap cepat dan mudah dipindai.
 - Fokus aksesibilitas WCAG 2.1 AAA.
-- Warna utama: Deep Navy `#1A2B3C` dan Alert Red untuk risiko.
+- Warna utama: Deep Navy `#1A365D` dan Muted Crimson untuk darurat.
 
 ## 7. Technical Notes
 - Responsive untuk mobile, tablet, dan desktop.
 - HTML5 semantik.
-- Navigasi inti dapat dicapai dalam maksimal 3 klik.
-- Dibangun sebagai prototype kompetisi yang siap dikembangkan lebih lanjut.
+- Prototype legal-tech berbasis Laravel Blade.
+- Alur autentikasi masih frontend-only.
+- Bahasa Indonesia / English dipilih saat pertama kali masuk, disimpan di browser, dan dapat diganti lagi dari header.
 
-## 8. Setup Instructions
+## 8. Recent Improvements
+- Rebranding dari `Lex Innovate` menjadi `Ruang Keadilan`.
+- Homepage disederhanakan agar fokus ke masalah hukum nyata, bukan copy desain generik.
+- Header dimodernisasi: lebih ringkas, tombol lebih slim, dan navigasi lebih rapi.
+- Suggestion kasus ditambahkan di landing page dan halaman `Tanya AI`.
+- `Tanya AI` sekarang memiliki beberapa preset kasus dengan simulasi jawaban AI yang berbeda untuk tiap konteks masalah.
+- Contact form diperbarui: nomor telepon wajib, email opsional.
+- Flow akun ditambahkan: login, register, forgot password, reset password OTP.
+- Safe Exit, Emergency Mode, Action Guide, dan Document Scan dirapikan agar lebih konsisten.
+- Dukungan bilingual ditambahkan: pilihan Bahasa Indonesia / English saat pertama kali masuk serta switch bahasa di header.
+
+## 9. Setup Instructions
 ```bash
 composer install
 npm install
@@ -52,12 +69,12 @@ php artisan serve
 npm run dev
 ```
 
-## 9. Demo Assets
+## 10. Demo Assets
 - Demo URL: [Isi Link Demo]
 - Video URL: [Isi Link Video]
 - Presentation Deck: [Isi Link Presentasi]
 
-## 10. Repository Notes
+## 11. Repository Notes
 - Ganti seluruh placeholder sebelum pengumpulan final.
 - Tambahkan screenshot final pada folder dokumentasi jika format lomba memintanya.
 - Sesuaikan identitas tim dan pranala demo sebelum publikasi.
