@@ -29,6 +29,7 @@
         color: var(--color-ink);
         font-family: var(--font-sans);
         text-rendering: optimizeLegibility;
+        overflow-x: hidden;
     }
 
     h1,
@@ -90,22 +91,23 @@
     }
 
     .nav-link {
-        display: block;
-        border-top: 2px solid var(--color-line);
-        padding-top: 0.85rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 3.5rem;
+        border: 2px solid var(--color-line);
+        padding: 0.6rem 0.4rem;
         font-family: var(--font-display);
-        font-size: clamp(1.4rem, 2vw, 1.9rem);
+        font-size: clamp(1rem, 2.5vw, 1.2rem);
         font-weight: 700;
         letter-spacing: -0.04em;
         text-transform: uppercase;
+        text-align: center;
     }
 
     .nav-link[data-active='true'] {
         background: var(--color-ink);
         color: var(--color-surface);
-        padding-inline: 0.8rem;
-        padding-block: 0.85rem;
-        border-top-width: 0;
     }
 
     .cta-link {
@@ -134,10 +136,41 @@
         line-height: 1.4;
     }
 
+    .quick-select {
+        width: 100%;
+        border: 2px solid var(--color-line);
+        background: var(--color-surface);
+        padding: 0.85rem 1rem;
+        font-family: var(--font-display);
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+    }
+
     .display-number {
         font-family: var(--font-display);
         font-size: clamp(3rem, 8vw, 7rem);
         line-height: 0.9;
         letter-spacing: -0.06em;
+    }
+}
+
+@media (min-width: 64rem) {
+    @layer components {
+        .nav-link {
+            justify-content: flex-start;
+            min-height: auto;
+            border-width: 0;
+            border-top: 2px solid var(--color-line);
+            padding: 0.85rem 0 0;
+            font-size: clamp(1.4rem, 2vw, 1.9rem);
+            text-align: left;
+        }
+
+        .nav-link[data-active='true'] {
+            padding: 0.85rem 0.8rem;
+            border-top-width: 0;
+        }
     }
 }

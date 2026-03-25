@@ -16,7 +16,7 @@
                 <div class="sticky top-0 flex flex-col gap-8 p-6 md:p-8">
                     <div class="space-y-4">
                         <p class="section-kicker">TECHSOFT 2026</p>
-                        <a href="{{ route('home') }}" class="block font-[var(--font-display)] text-4xl font-bold uppercase tracking-[-0.08em] md:text-5xl">
+                        <a href="{{ route('home') }}" class="block font-[var(--font-display)] text-3xl font-bold uppercase tracking-[-0.08em] md:text-5xl">
                             Lex
                             <br>
                             Innovate
@@ -26,7 +26,7 @@
                         </p>
                     </div>
 
-                    <nav aria-label="Primary" class="flex flex-col gap-2">
+                    <nav aria-label="Primary" class="grid grid-cols-4 gap-2 lg:flex lg:flex-col">
                         <a href="{{ route('home') }}" class="nav-link" data-active="{{ request()->routeIs('home') ? 'true' : 'false' }}">Home</a>
                         <a href="{{ route('about') }}" class="nav-link" data-active="{{ request()->routeIs('about') ? 'true' : 'false' }}">About</a>
                         <a href="{{ route('konten') }}" class="nav-link" data-active="{{ request()->routeIs('konten') ? 'true' : 'false' }}">Konten</a>
@@ -45,20 +45,38 @@
                 </div>
             </aside>
 
-            <div class="flex min-h-screen flex-col">
+            <div class="flex min-h-screen min-w-0 flex-col">
                 <header class="border-b-2 border-[var(--color-line)] px-6 py-5 md:px-10 lg:px-12">
-                    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-                        <div>
+                    <div class="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between">
+                        <div class="min-w-0">
                             <p class="section-kicker">@yield('eyebrow', 'Legal-Tech')</p>
                             <p class="mt-2 max-w-3xl text-[1.125rem] leading-6 text-[var(--color-ink)]/80">
                                 INNOVATE: Impel Novelty, Navigate, Optimize, Validate, Advance Technological Endeavors.
                             </p>
                         </div>
-                        <p class="font-[var(--font-display)] text-lg font-bold uppercase tracking-[0.08em]">Social Subtheme</p>
+                        <div class="grid gap-3 xl:w-[28rem]">
+                            <div class="grid gap-3 md:grid-cols-[minmax(0,1fr)_auto]">
+                                <label class="sr-only" for="feature-jump">Fitur Cepat</label>
+                                <select
+                                    id="feature-jump"
+                                    class="quick-select"
+                                    onchange="if (this.value) window.location.href = this.value"
+                                >
+                                    <option value="">Fitur Cepat</option>
+                                    <option value="{{ route('konten') }}#scanner">Scanner Dokumen</option>
+                                    <option value="{{ route('konten') }}#map">Map Bantuan</option>
+                                    <option value="{{ route('konten') }}#education">Hak Saya</option>
+                                    <option value="{{ route('konten') }}#feed">Justice Feed</option>
+                                    <option value="{{ route('contact') }}">Hubungi Bantuan</option>
+                                </select>
+                                <a href="{{ route('contact') }}" class="cta-link text-center">Bantuan</a>
+                            </div>
+                            <p class="font-[var(--font-display)] text-lg font-bold uppercase tracking-[0.08em]">Social Subtheme</p>
+                        </div>
                     </div>
                 </header>
 
-                <main class="flex-1 px-6 py-8 md:px-10 md:py-10 lg:px-12 lg:py-12">
+                <main class="flex-1 min-w-0 px-6 py-8 md:px-10 md:py-10 lg:px-12 lg:py-12">
                     @yield('content')
                 </main>
 

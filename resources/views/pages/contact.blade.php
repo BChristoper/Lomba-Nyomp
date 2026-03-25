@@ -9,7 +9,7 @@
             <p class="section-kicker">Case Intake</p>
             <h1 class="mt-5 max-w-4xl text-6xl uppercase md:text-7xl lg:text-[7rem]">Form singkat untuk triase awal.</h1>
             <p class="mt-8 max-w-3xl">
-                Hanya tiga field penting agar pengguna bisa bergerak cepat: identitas dasar, jenis perkara, dan ringkasan kejadian.
+                Tiga field saja: nama, jenis perkara, dan ringkasan kasus.
             </p>
 
             @if (session('status'))
@@ -51,15 +51,15 @@
         <aside class="grid gap-6">
             <article class="flat-panel p-6">
                 <p class="section-kicker">Why 3 Fields</p>
-                <p class="mt-4">Model ini mengurangi hambatan bagi pengguna yang sedang dalam tekanan, menjaga fokus pada kebutuhan mendesak, dan tetap cukup untuk asesmen awal.</p>
+                <p class="mt-4">Lebih cepat diisi saat pengguna sedang butuh bantuan.</p>
             </article>
             <article class="alert-panel p-6">
                 <p class="section-kicker">Priority Signal</p>
-                <p class="mt-4">Kasus dengan ancaman tenggat, denda, atau penyebaran data sensitif dapat diprioritaskan segera setelah intake diterima.</p>
+                <p class="mt-4">Kasus dengan tenggat atau risiko tinggi bisa diprioritaskan.</p>
             </article>
             <article class="flat-panel p-6">
                 <p class="section-kicker">Next Step</p>
-                <p class="mt-4">Setelah formulir dikirim, pengguna diarahkan menuju validasi awal, daftar dokumen yang perlu disiapkan, dan kanal tindak lanjut.</p>
+                <p class="mt-4">Setelah dikirim, pengguna masuk ke validasi awal dan tindak lanjut.</p>
             </article>
         </aside>
     </section>
