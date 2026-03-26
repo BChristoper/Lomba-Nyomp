@@ -8,6 +8,8 @@ Route::view('/tanya-ai', 'pages.ai-chat')->name('ai-chat');
 Route::view('/panduan-langkah', 'pages.action-guide')->name('action-guide');
 Route::view('/scan-dokumen', 'pages.document-scan')->name('document-scan');
 Route::view('/hubungi', 'pages.contact')->name('contact');
+Route::view('/halokum', 'pages.halokum')->name('halokum');
+Route::view('/justice-viral', 'pages.justice-viral')->name('justice-viral');
 Route::view('/safe-exit', 'pages.safe-exit')->name('safe-exit');
 Route::view('/akun', 'pages.auth.landing')->name('auth.landing');
 Route::view('/masuk', 'pages.auth.login')->name('login');
