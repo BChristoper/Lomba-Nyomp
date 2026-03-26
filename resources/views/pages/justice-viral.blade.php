@@ -15,6 +15,7 @@
             'comments' => 128,
             'upvotes' => 12400,
             'tags' => ['Penipuan', 'Viral'],
+            'image' => 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80',
             'chronology' => [
                 'Korban mentransfer iuran rutin selama 4 bulan ke rekening yang sama.',
                 'Admin menunda pencairan dengan alasan verifikasi sistem.',
@@ -40,6 +41,7 @@
             'comments' => 92,
             'upvotes' => 8700,
             'tags' => ['KDRT', 'Urgent'],
+            'image' => 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=80',
             'chronology' => [
                 'Korban mengirim rekaman ke keluarga untuk bukti awal.',
                 'Konten menyebar ke publik tanpa persetujuan korban.',
@@ -65,6 +67,7 @@
             'comments' => 77,
             'upvotes' => 6400,
             'tags' => ['Kriminal', 'Verifikasi'],
+            'image' => 'https://images.unsplash.com/photo-1529074963764-98f45c47344b?auto=format&fit=crop&w=1200&q=80',
             'chronology' => [
                 'Video 20 detik diunggah tanpa konteks penuh.',
                 'Pedagang mengalami tekanan publik sebelum pemeriksaan.',
@@ -90,6 +93,7 @@
             'comments' => 61,
             'upvotes' => 5300,
             'tags' => ['Korupsi', 'Audit'],
+            'image' => 'https://images.unsplash.com/photo-1436450412740-6b988f486c6b?auto=format&fit=crop&w=1200&q=80',
             'chronology' => [
                 'Dokumen anggaran beredar melalui forum warga.',
                 'Netizen membandingkan nilai item dengan harga pasar.',
@@ -115,6 +119,7 @@
             'comments' => 53,
             'upvotes' => 4100,
             'tags' => ['Penipuan', 'Konsumen'],
+            'image' => 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80',
             'chronology' => [
                 'Akun palsu membuka penjualan kilat dengan batas waktu singkat.',
                 'Pembeli diarahkan ke transfer manual di luar platform resmi.',
@@ -142,9 +147,9 @@
         <div class="rounded-3xl border border-slate-200 bg-white/90 p-4 shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur-sm md:p-5">
             <div class="mt-5 grid gap-5 xl:grid-cols-[minmax(0,1fr)_20rem]">
                 <div class="space-y-5">
-                    <article class="relative overflow-hidden rounded-3xl border border-rose-200 bg-gradient-to-br from-white via-white to-rose-50 p-5 shadow-[0_18px_45px_rgba(239,68,68,0.16)] md:p-6">
-                        <span class="inline-flex items-center gap-2 rounded-full border border-rose-200 bg-rose-50 px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-rose-600">
-                            <span class="inline-block h-2 w-2 rounded-full bg-[#EF4444]"></span>
+                    <article class="relative overflow-hidden rounded-3xl border border-emerald-200 bg-gradient-to-br from-white via-white to-emerald-50 p-5 shadow-[0_18px_45px_rgba(16,185,129,0.16)] md:p-6">
+                        <span class="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-emerald-700">
+                            <span class="inline-block h-2 w-2 rounded-full bg-emerald-500"></span>
                             Viral
                         </span>
 
@@ -158,7 +163,11 @@
                                 </div>
                                 <div class="mt-4 flex flex-wrap items-center gap-3">
                                     <button type="button" class="upvote-btn inline-flex items-center gap-2 rounded-xl border border-blue-200 bg-white px-4 py-2 font-semibold text-[#2563EB] transition hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98]" data-upvote data-case-id="{{ $featured['id'] }}" aria-label="Upvote kasus">
-                                        <span aria-hidden="true">UP</span>
+                                        <span aria-hidden="true" class="inline-flex h-4 w-4 items-center justify-center">
+                                            <svg viewBox="0 0 20 20" fill="none" class="h-4 w-4" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M10 15V5m0 0-4 4m4-4 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
                                         <span class="text-base font-bold" data-case-count="{{ $featured['id'] }}">0</span>
                                     </button>
                                     <button type="button" class="rounded-xl bg-[linear-gradient(120deg,#4d9df5_0%,#49b4e5_45%,#34c890_100%)] px-4 py-2 font-semibold text-white transition hover:scale-[1.01] hover:shadow-md active:scale-[0.99]" data-open-detail data-case-id="{{ $featured['id'] }}">Baca Selengkapnya</button>
@@ -166,16 +175,10 @@
                                 </div>
                             </div>
 
-                            <div class="rounded-2xl border border-slate-200 bg-gradient-to-br from-blue-50 via-white to-red-50 p-3 shadow-inner">
-                                <div class="h-36 rounded-xl bg-gradient-to-br from-blue-200 via-blue-100 to-red-100 p-3">
-                                    <div class="flex h-full flex-col justify-between rounded-lg border border-white/70 bg-white/60 p-3">
-                                        <span class="w-fit rounded-md bg-blue-600 px-2 py-1 text-xs font-bold text-white">CASE</span>
-                                        <div class="space-y-1">
-                                            <div class="h-2 w-full rounded bg-blue-200"></div>
-                                            <div class="h-2 w-4/5 rounded bg-slate-200"></div>
-                                            <div class="h-2 w-3/5 rounded bg-red-200"></div>
-                                        </div>
-                                    </div>
+                            <div class="rounded-2xl border border-slate-200 bg-gradient-to-br from-emerald-50 via-white to-lime-50 p-3 shadow-inner">
+                                <div class="relative h-36 overflow-hidden rounded-xl border border-white/70">
+                                    <img src="{{ $featured['image'] }}" alt="Ilustrasi kasus {{ $featured['category'] }}" class="h-full w-full object-cover object-center">
+                                    <span class="absolute left-2 top-2 rounded-md bg-slate-900/70 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.08em] text-white">{{ $featured['category'] }}</span>
                                 </div>
                             </div>
                         </div>
@@ -201,7 +204,11 @@
                             <article class="case-card group grid gap-3 rounded-2xl border border-slate-200 bg-white p-4 transition hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(15,23,42,0.1)] md:grid-cols-[auto_minmax(0,1fr)_7rem] md:items-start" data-case-card data-case-id="{{ $case['id'] }}">
                                 <div class="flex items-center gap-2 md:flex-col md:items-center md:gap-1">
                                     <button type="button" class="upvote-btn inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-sm font-bold text-slate-700 transition hover:-translate-y-0.5 hover:border-[#2563EB] hover:text-[#2563EB]" data-upvote data-case-id="{{ $case['id'] }}" aria-label="Upvote">
-                                        <span aria-hidden="true">^</span>
+                                        <span aria-hidden="true" class="inline-flex h-4 w-4 items-center justify-center">
+                                            <svg viewBox="0 0 20 20" fill="none" class="h-4 w-4" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M10 15V5m0 0-4 4m4-4 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
                                     </button>
                                     <span class="text-sm font-bold text-slate-700" data-case-count="{{ $case['id'] }}">0</span>
                                 </div>
@@ -221,8 +228,9 @@
                                 </div>
 
                                 <div class="hidden md:block">
-                                    <div class="h-20 rounded-xl border border-slate-200 bg-gradient-to-br from-blue-50 to-slate-100 p-2">
-                                        <div class="flex h-full items-end rounded-lg bg-white/70 p-2 text-[10px] font-semibold uppercase tracking-[0.08em] text-slate-500">{{ $case['category'] }}</div>
+                                    <div class="relative h-20 overflow-hidden rounded-xl border border-slate-200">
+                                        <img src="{{ $case['image'] }}" alt="Ilustrasi kasus {{ $case['category'] }}" class="h-full w-full object-cover object-center">
+                                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/65 to-transparent p-2 text-[10px] font-semibold uppercase tracking-[0.08em] text-white">{{ $case['category'] }}</div>
                                     </div>
                                 </div>
                             </article>
@@ -239,12 +247,30 @@
                             </div>
                             <div class="flex flex-wrap items-center gap-2">
                                 <button type="button" class="upvote-btn inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 transition hover:-translate-y-0.5 hover:border-[#2563EB] hover:text-[#2563EB]" data-upvote id="detail-upvote-btn" data-case-id="">
-                                    <span aria-hidden="true">UP</span>
+                                    <span aria-hidden="true" class="inline-flex h-4 w-4 items-center justify-center">
+                                        <svg viewBox="0 0 20 20" fill="none" class="h-4 w-4" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8.2 8.5 9.8 4c.3-.8 1.2-1.2 2-.9.6.2 1 1 .8 1.7L12 8.5h3.5c1.1 0 1.8 1.1 1.3 2.1l-2.2 4.7a2 2 0 0 1-1.8 1.2H8.2m0-8v8m0-8H5.9c-.6 0-1 .4-1 1v6c0 .6.4 1 1 1h2.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
                                     <span data-case-count="" id="detail-upvote-count">0</span>
                                 </button>
-                                <button type="button" class="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-600 transition hover:scale-[1.01] hover:shadow-md">Share</button>
-                                <button type="button" class="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-600 transition hover:scale-[1.01] hover:shadow-md">Copy Link</button>
+                                <button type="button" class="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-600 transition hover:scale-[1.01] hover:shadow-md">
+                                    <svg viewBox="0 0 20 20" fill="none" class="h-4 w-4" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M11.5 8.5 15 5m0 0v3m0-3h-3M15 11v4a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 15V6.5A1.5 1.5 0 0 1 5 5h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    <span>Share</span>
+                                </button>
+                                <button type="button" class="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-600 transition hover:scale-[1.01] hover:shadow-md">
+                                    <svg viewBox="0 0 20 20" fill="none" class="h-4 w-4" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7 6.5V5A1.5 1.5 0 0 1 8.5 3.5h6A1.5 1.5 0 0 1 16 5v6a1.5 1.5 0 0 1-1.5 1.5H13m-5.5 4H5A1.5 1.5 0 0 1 3.5 15V9A1.5 1.5 0 0 1 5 7.5h6A1.5 1.5 0 0 1 12.5 9v6a1.5 1.5 0 0 1-1.5 1.5H9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    <span>Copy Link</span>
+                                </button>
                             </div>
+                        </div>
+
+                        <div class="mt-4 overflow-hidden rounded-2xl border border-slate-200">
+                            <img id="detail-image" src="{{ $featured['image'] }}" alt="Ilustrasi detail kasus" class="h-48 w-full object-cover object-center md:h-56">
                         </div>
 
                         <div class="mt-5 grid gap-5 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
@@ -281,11 +307,11 @@
 
                 <aside class="hidden h-fit gap-4 xl:grid">
                     <section class="rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_8px_22px_rgba(15,23,42,0.07)]">
-                        <h3 class="text-sm font-bold uppercase tracking-[0.1em] text-rose-600">Trending Hari Ini</h3>
+                        <h3 class="text-sm font-bold uppercase tracking-[0.1em] text-blue-600">Trending Hari Ini</h3>
                         <ol class="mt-3 space-y-2 text-sm">
                             @foreach (array_slice($cases, 0, 5) as $index => $case)
                                 <li class="flex gap-2 rounded-xl border border-slate-100 bg-slate-50 px-3 py-2">
-                                    <span class="text-xs font-bold text-rose-500">{{ $index + 1 }}</span>
+                                    <span class="text-xs font-bold text-blue-500">{{ $index + 1 }}</span>
                                     <button type="button" class="text-left font-semibold text-slate-700 transition hover:text-[#2563EB]" data-open-detail data-case-id="{{ $case['id'] }}">{{ $case['title'] }}</button>
                                 </li>
                             @endforeach
@@ -302,7 +328,7 @@
 
                     <section class="rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_8px_22px_rgba(15,23,42,0.07)]">
                         <h3 class="text-sm font-bold uppercase tracking-[0.1em] text-blue-600">Aksi Komunitas</h3>
-                        <button type="button" class="mt-3 w-full rounded-xl bg-[#EF4444] px-4 py-2 text-sm font-semibold text-white transition hover:scale-[1.01] hover:shadow-md active:scale-[0.99]">Laporkan Kasus Baru</button>
+                        <button type="button" class="mt-3 w-full rounded-xl bg-[linear-gradient(120deg,#4d9df5_0%,#49b4e5_45%,#34c890_100%)] px-4 py-2 text-sm font-semibold text-white transition hover:scale-[1.01] hover:shadow-md active:scale-[0.99]">Laporkan Kasus Baru</button>
                     </section>
                 </aside>
             </div>
@@ -338,6 +364,7 @@
             const detailAnalysis = document.getElementById('detail-analysis');
             const detailRights = document.getElementById('detail-rights');
             const detailAvoid = document.getElementById('detail-avoid');
+            const detailImage = document.getElementById('detail-image');
             const detailUpvoteBtn = document.getElementById('detail-upvote-btn');
             const detailUpvoteCount = document.getElementById('detail-upvote-count');
             const commentForm = document.getElementById('comment-form');
@@ -410,7 +437,14 @@
                                 <div class="flex items-center justify-between gap-2">
                                     <strong class="text-sm text-slate-800">${item.user}</strong>
                                     <div class="flex items-center gap-2 text-xs text-slate-500">
-                                        <button type="button" class="rounded-md border border-slate-200 px-2 py-0.5 font-semibold">UP ${item.votes}</button>
+                                        <button type="button" class="inline-flex items-center gap-1 rounded-md border border-slate-200 px-2 py-0.5 font-semibold">
+                                            <span class="inline-flex h-3.5 w-3.5 items-center justify-center" aria-hidden="true">
+                                                <svg viewBox="0 0 20 20" fill="none" class="h-3.5 w-3.5" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M10 15V5m0 0-4 4m4-4 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                </svg>
+                                            </span>
+                                            <span>${item.votes}</span>
+                                        </button>
                                         <button type="button" class="font-semibold text-blue-600">Reply</button>
                                     </div>
                                 </div>
@@ -430,6 +464,10 @@
                 detailTitle.textContent = item.title;
                 detailMeta.textContent = `${item.location} | ${item.time} | ${item.comments} komentar`;
                 detailAnalysis.textContent = item.analysis;
+                if (detailImage) {
+                    detailImage.src = item.image || '';
+                    detailImage.alt = `Ilustrasi kasus ${item.category}`;
+                }
 
                 detailChronology.innerHTML = item.chronology
                     .map((point) => `<li class="relative pl-2 before:absolute before:-left-[1.1rem] before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-blue-500">${point}</li>`)
