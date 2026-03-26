@@ -48,10 +48,10 @@ COPY --from=build-assets /app/public/build ./public/build
 RUN composer install --no-interaction --optimize-autoloader --no-dev
 
 # Set permissions
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/database
 
 # Expose port 80 (Standard for Dokploy HTTP traffic)
 EXPOSE 80
 
-# Jalankan migrasi dan nyalakan Apache
-CMD ["sh", "-c", "touch database/database.sqlite && php artisan storage:link && php artisan migrate --force && apache2-foreground"]
+# Jalankan migrasi dan nyalakan Apache (Memastikan izin database benar di setiap startup)
+CMD ["sh", "-c", "touch database/database.sqlite && chown -R www-data:www-data /var/www/html/database && php artisan storage:link && php artisan migrate --force && apache2-foreground"]
