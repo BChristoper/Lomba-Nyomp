@@ -55,16 +55,31 @@
         @if (! $isSafeExit)
             <div class="app-shell">
                 <header class="header-shell">
-                    <nav class="bela-live-container bela-live-nav" aria-label="Navigasi utama">
+                    <nav class="bela-live-container bela-live-nav" aria-label="Navigasi utama" data-mobile-nav>
                         <a href="{{ $routeLang('home') }}" class="bela-live-brand">BELA</a>
-                        <div class="bela-live-links">
-                            <a href="{{ $routeLang('home') }}">Beranda</a>
-                            <a href="{{ $routeLang('action-guide') }}">Tahukum</a>
-                            <a href="{{ $routeLang('ai-chat') }}">LegalAi</a>
-                            <a href="{{ $routeLang('justice-viral') }}">Justice Viral</a>
-                            <a href="{{ $routeLang('halokum') }}">Halokum</a>
+                        <button
+                            type="button"
+                            class="bela-live-burger"
+                            aria-label="Buka menu navigasi"
+                            aria-expanded="false"
+                            aria-controls="bela-live-menu"
+                            data-mobile-nav-toggle
+                        >
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </button>
+                        <div id="bela-live-menu" class="bela-live-menu" data-mobile-nav-menu>
+                            <div class="bela-live-links">
+                                <a href="{{ $routeLang('home') }}">Beranda</a>
+                                <a href="{{ $routeLang('action-guide') }}">Tahukum</a>
+                                <a href="{{ $routeLang('ai-chat') }}">LegalAi</a>
+                                <a href="{{ $routeLang('justice-viral') }}">Justice Viral</a>
+                                <a href="{{ $routeLang('halokum') }}">Halokum</a>
+                            </div>
+                            <a href="{{ $routeLang('auth.landing') }}" class="bela-live-btn bela-live-btn-outline bela-live-login-mobile">Masuk</a>
                         </div>
-                        <a href="{{ $routeLang('auth.landing') }}" class="bela-live-btn bela-live-btn-outline">Masuk</a>
+                        <a href="{{ $routeLang('auth.landing') }}" class="bela-live-btn bela-live-btn-outline bela-live-login-desktop">Masuk</a>
                     </nav>
                 </header>
 

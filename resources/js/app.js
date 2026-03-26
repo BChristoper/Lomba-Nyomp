@@ -59,4 +59,62 @@ const syncLanguage = () => {
     }
 };
 
+const setupMobileNav = () => {
+    const nav = document.querySelector('[data-mobile-nav]');
+    const toggleButton = document.querySelector('[data-mobile-nav-toggle]');
+    const menu = document.querySelector('[data-mobile-nav-menu]');
+
+    if (!nav || !toggleButton || !menu) {
+        return;
+    }
+
+    const closeMenu = () => {
+        nav.classList.remove('is-open');
+        toggleButton.setAttribute('aria-expanded', 'false');
+    };
+
+    const openMenu = () => {
+        nav.classList.add('is-open');
+        toggleButton.setAttribute('aria-expanded', 'true');
+    };
+
+    toggleButton.addEventListener('click', () => {
+        if (nav.classList.contains('is-open')) {
+            closeMenu();
+            return;
+        }
+
+        openMenu();
+    });
+
+    menu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('click', (event) => {
+        if (window.innerWidth >= 768) {
+            return;
+        }
+
+        if (nav.contains(event.target)) {
+            return;
+        }
+
+        closeMenu();
+    });
+
+    window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            closeMenu();
+        }
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768) {
+            closeMenu();
+        }
+    });
+};
+
 syncLanguage();
+setupMobileNav();

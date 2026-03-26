@@ -23,16 +23,31 @@
             </div>
 
             <header class="bela-live-header">
-                <nav class="bela-live-container bela-live-nav" aria-label="Navigasi utama">
+                <nav class="bela-live-container bela-live-nav" aria-label="Navigasi utama" data-mobile-nav>
                     <a href="{{ $routeLang('home') }}" class="bela-live-brand">BELA</a>
-                    <div class="bela-live-links">
-                        <a href="{{ $routeLang('home') }}">Beranda</a>
-                        <a href="{{ $routeLang('action-guide') }}">Tahukum</a>
-                        <a href="{{ $routeLang('ai-chat') }}">LegalAi</a>
-                        <a href="{{ $routeLang('justice-viral') }}">Justice Viral</a>
-                        <a href="{{ $routeLang('halokum') }}">Halokum</a>
+                    <button
+                        type="button"
+                        class="bela-live-burger"
+                        aria-label="Buka menu navigasi"
+                        aria-expanded="false"
+                        aria-controls="bela-live-menu"
+                        data-mobile-nav-toggle
+                    >
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </button>
+                    <div id="bela-live-menu" class="bela-live-menu" data-mobile-nav-menu>
+                        <div class="bela-live-links">
+                            <a href="{{ $routeLang('home') }}">Beranda</a>
+                            <a href="{{ $routeLang('action-guide') }}">Tahukum</a>
+                            <a href="{{ $routeLang('ai-chat') }}">LegalAi</a>
+                            <a href="{{ $routeLang('justice-viral') }}">Justice Viral</a>
+                            <a href="{{ $routeLang('halokum') }}">Halokum</a>
+                        </div>
+                        <a href="{{ $routeLang('auth.landing') }}" class="bela-live-btn bela-live-btn-outline bela-live-login-mobile">Masuk</a>
                     </div>
-                    <a href="{{ $routeLang('auth.landing') }}" class="bela-live-btn bela-live-btn-outline">Masuk</a>
+                    <a href="{{ $routeLang('auth.landing') }}" class="bela-live-btn bela-live-btn-outline bela-live-login-desktop">Masuk</a>
                 </nav>
             </header>
 
@@ -230,5 +245,59 @@
                 </div>
             </footer>
         </div>
+        <script>
+            (() => {
+                const nav = document.querySelector('[data-mobile-nav]');
+                const toggleButton = document.querySelector('[data-mobile-nav-toggle]');
+                const menu = document.querySelector('[data-mobile-nav-menu]');
+
+                if (!nav || !toggleButton || !menu) {
+                    return;
+                }
+
+                const closeMenu = () => {
+                    nav.classList.remove('is-open');
+                    toggleButton.setAttribute('aria-expanded', 'false');
+                };
+
+                const openMenu = () => {
+                    nav.classList.add('is-open');
+                    toggleButton.setAttribute('aria-expanded', 'true');
+                };
+
+                toggleButton.addEventListener('click', () => {
+                    if (nav.classList.contains('is-open')) {
+                        closeMenu();
+                        return;
+                    }
+
+                    openMenu();
+                });
+
+                menu.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', closeMenu);
+                });
+
+                document.addEventListener('click', (event) => {
+                    if (window.innerWidth >= 768 || nav.contains(event.target)) {
+                        return;
+                    }
+
+                    closeMenu();
+                });
+
+                window.addEventListener('keydown', (event) => {
+                    if (event.key === 'Escape') {
+                        closeMenu();
+                    }
+                });
+
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth >= 768) {
+                        closeMenu();
+                    }
+                });
+            })();
+        </script>
     </body>
 </html>

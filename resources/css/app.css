@@ -2800,16 +2800,74 @@
         letter-spacing: 0.08em;
     }
 
-    .bela-live-links {
+    .bela-live-burger {
+        display: inline-grid;
+        place-content: center;
+        gap: 0.22rem;
+        width: 2.35rem;
+        height: 2.35rem;
+        border: 1px solid rgba(126, 178, 218, 0.56);
+        border-radius: 0.75rem;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 8px 16px rgba(120, 172, 217, 0.15);
+    }
+
+    .bela-live-burger span {
+        display: block;
+        width: 1.05rem;
+        height: 2px;
+        border-radius: 999px;
+        background: #3d6994;
+        transition: transform 180ms ease, opacity 180ms ease;
+    }
+
+    .bela-live-menu {
         display: none;
-        align-items: center;
-        gap: 0.9rem;
+        order: 3;
+        width: 100%;
+        gap: 0.52rem;
+    }
+
+    .bela-live-nav.is-open .bela-live-menu {
+        display: grid;
+    }
+
+    .bela-live-nav.is-open .bela-live-burger span:nth-child(1) {
+        transform: translateY(4px) rotate(45deg);
+    }
+
+    .bela-live-nav.is-open .bela-live-burger span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .bela-live-nav.is-open .bela-live-burger span:nth-child(3) {
+        transform: translateY(-4px) rotate(-45deg);
+    }
+
+    .bela-live-links {
+        display: grid;
+        gap: 0.42rem;
     }
 
     .bela-live-links a {
-        font-size: 0.9rem;
+        display: block;
+        border: 1px solid rgba(126, 178, 218, 0.56);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.92);
+        padding: 0.42rem 0.7rem;
+        font-size: 0.84rem;
+        line-height: 1.15;
         color: #3d6994;
         font-weight: 500;
+    }
+
+    .bela-live-login-mobile {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .bela-live-login-desktop {
+        display: none;
     }
 
     .bela-live-main {
@@ -3832,8 +3890,41 @@
             width: min(72rem, calc(100% - 3rem));
         }
 
+        .bela-live-burger {
+            display: none;
+        }
+
+        .bela-live-menu {
+            display: flex !important;
+            order: 0;
+            width: auto;
+            align-items: center;
+            gap: 0.9rem;
+            margin-left: auto;
+        }
+
         .bela-live-links {
             display: flex;
+            align-items: center;
+            gap: 0.9rem;
+        }
+
+        .bela-live-links a {
+            display: inline;
+            border: 0;
+            border-radius: 0;
+            background: transparent;
+            padding: 0;
+            font-size: 0.9rem;
+            line-height: 1.2;
+        }
+
+        .bela-live-login-mobile {
+            display: none;
+        }
+
+        .bela-live-login-desktop {
+            display: inline-flex;
         }
 
         .bela-live-main {
@@ -4838,6 +4929,178 @@
         .tahukum-card-hook {
             font-size: 0.76rem;
             line-height: 1.2rem;
+        }
+    }
+}
+
+@media (max-width: 47.99rem) {
+    @layer base {
+        body {
+            font-size: 1rem;
+            line-height: 1.55;
+        }
+
+        p,
+        li,
+        label,
+        input,
+        textarea,
+        select,
+        button {
+            font-size: 1rem;
+            line-height: 1.55;
+        }
+
+        img,
+        svg,
+        video,
+        canvas {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    @layer components {
+        .header-shell {
+            padding: 0.5rem 0.5rem 0;
+        }
+
+        .page-main {
+            padding: 0.95rem 0.6rem 0;
+        }
+
+        .bela-live-container {
+            width: min(72rem, calc(100% - 1rem));
+        }
+
+        .bela-live-nav {
+            flex-wrap: wrap;
+            gap: 0.55rem;
+            padding: 0.65rem 0.72rem;
+        }
+
+        .bela-live-brand {
+            min-height: 2.08rem;
+            padding: 0.26rem 0.68rem;
+            font-size: 0.82rem;
+            letter-spacing: 0.05em;
+        }
+
+        .bela-live-btn {
+            min-height: 2.1rem;
+            padding: 0.35rem 0.72rem;
+            font-size: 0.8rem;
+            letter-spacing: 0;
+        }
+
+        .bela-live-burger {
+            margin-left: auto;
+        }
+
+        .bela-live-login-desktop {
+            display: none;
+        }
+
+        .bela-live-menu {
+            margin-top: 0.1rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid rgba(126, 178, 218, 0.34);
+        }
+
+        .bela-live-links a {
+            padding: 0.46rem 0.72rem;
+            font-size: 0.82rem;
+        }
+
+        .bela-live-login-mobile {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .hero-card,
+        .surface-card {
+            border-radius: 1.24rem;
+        }
+
+        .hero-card::after {
+            right: -3.5rem;
+            bottom: -3.5rem;
+            width: 11rem;
+            height: 11rem;
+        }
+
+        .form-field {
+            padding: 0.75rem 0.88rem;
+            font-size: 1rem;
+        }
+
+        .soft-button,
+        .primary-button,
+        .success-button,
+        .danger-button {
+            width: 100%;
+            min-height: 2.75rem;
+            padding: 0.64rem 0.86rem;
+            font-size: 0.86rem;
+        }
+
+        .tahukum-grid {
+            grid-template-columns: minmax(0, 1fr);
+            gap: 0.65rem;
+        }
+
+        .tahukum-card {
+            min-height: 9.2rem;
+        }
+
+        .halokum-card {
+            padding: 0.72rem;
+        }
+
+        .halokum-tab-row {
+            display: flex;
+            overflow-x: auto;
+            overflow-y: hidden;
+            gap: 0.35rem;
+            padding: 0.24rem;
+            scrollbar-width: none;
+        }
+
+        .halokum-tab-row::-webkit-scrollbar {
+            display: none;
+        }
+
+        .halokum-tab {
+            flex: 0 0 auto;
+            white-space: nowrap;
+            padding: 0.3rem 0.72rem;
+        }
+
+        .halokum-expert-actions {
+            width: 100%;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .halokum-mini-btn {
+            font-size: 0.68rem;
+        }
+
+        .legalai-search-wrap kbd {
+            display: none;
+        }
+
+        .legalai-table th,
+        .legalai-table td {
+            padding: 0.66rem 0.72rem;
+        }
+
+        .bela-live-showcase .mock.large {
+            min-height: 9.8rem;
+        }
+
+        .bela-live-viral-marquee-col {
+            height: clamp(14rem, 72vw, 19rem);
         }
     }
 }
