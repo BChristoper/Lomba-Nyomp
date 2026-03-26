@@ -1,213 +1,238 @@
-@extends('layouts.legaltech')
-@php
-    $lang = request('lang') === 'en' ? 'en' : 'id';
-    $langRoute = ['lang' => $lang];
-    $t = fn (string $id, string $en) => $lang === 'en' ? $en : $id;
+﻿@php
+    $langRoute = ['lang' => 'id'];
     $routeLang = fn (string $name, array $params = []) => route($name, array_merge($langRoute, $params));
 @endphp
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>BELA | Legal-Tech Indonesia</title>
+        <meta
+            name="description"
+            content="BELA membantu masyarakat memahami hukum melalui UI interaktif: scan dokumen, edukasi hak, diskusi, dan dukungan komunitas."
+        >
+        @vite('resources/css/app.css')
+    </head>
+    <body class="bela-live-body">
+        <div class="bela-live-page">
+            <div class="bela-live-bg" aria-hidden="true">
+                <span class="bela-live-blob blob-a"></span>
+                <span class="bela-live-blob blob-b"></span>
+                <span class="bela-live-blob blob-c"></span>
+            </div>
 
-@section('title')
-    {{ $t('Beranda | Ruang Keadilan', 'Home | Justice Room') }}
-@endsection
+            <header class="bela-live-header">
+                <nav class="bela-live-container bela-live-nav" aria-label="Navigasi utama">
+                    <a href="{{ $routeLang('home') }}" class="bela-live-brand">BELA</a>
+                    <div class="bela-live-links">
+                        <a href="#fitur">Fitur</a>
+                        <a href="#cara-kerja">Cara Kerja</a>
+                        <a href="#viral">Justice Viral</a>
+                        <a href="#halohukum">HaloHukum</a>
+                    </div>
+                    <a href="{{ $routeLang('auth.landing') }}" class="bela-live-btn bela-live-btn-outline">Masuk</a>
+                </nav>
+            </header>
 
-@section('content')
-    @php
-        $aiSuggestions = [
-            ['preset' => 'penipuan-online', 'label' => $t('Saya ditipu online', 'I was scammed online')],
-            ['preset' => 'kontrak-kerja', 'label' => $t('Saya ingin cek kontrak kerja', 'I want to review a work contract')],
-            ['preset' => 'dipanggil-polisi', 'label' => $t('Saya dipanggil polisi', 'I was summoned by the police')],
-            ['preset' => 'utang-ditagih', 'label' => $t('Saya diteror debt collector', 'Debt collectors are harassing me')],
-        ];
-    @endphp
+            <main class="bela-live-main bela-live-container">
+                <section class="bela-live-hero" id="hero">
+                    <div class="bela-live-hero-copy">
+                        <p class="bela-live-kicker">Platform Legal-Tech Interaktif</p>
+                        <h1>Semua Orang Berhak Dibela, dan Sekarang Lebih Mudah Memulai.</h1>
+                        <p>BELA bantu kamu paham dokumen, tahu hak, dan ambil tindakan dengan UI yang jelas, visual, dan tidak menakutkan.</p>
+                        <div class="bela-live-actions">
+                            <a href="{{ $routeLang('document-scan') }}" class="bela-live-btn bela-live-btn-primary">Coba Scan Dokumen</a>
+                            <a href="{{ $routeLang('action-guide') }}" class="bela-live-btn bela-live-btn-soft">Pelajari Hukum</a>
+                        </div>
+                        <div class="bela-live-trust">
+                            <article><strong>10.000+</strong><span>dokumen dianalisis</span></article>
+                            <article><strong>5.000+</strong><span>pengguna terbantu</span></article>
+                            <article><strong>24/7</strong><span>akses edukasi hukum</span></article>
+                        </div>
+                    </div>
 
-    <section class="mx-auto hero-grid max-w-6xl">
-        <div class="hero-card px-5 py-7 md:px-8 md:py-10">
-            <h1 class="mt-4 max-w-4xl text-[2.25rem] leading-[1.02] text-[var(--color-primary)] md:mt-5 md:text-[4.6rem]">
-                {{ $t(
-                    'Mulai dari situasi yang kamu alami, bukan dari istilah hukum yang rumit.',
-                    'Start from the situation you are facing, not from complicated legal terms.'
-                ) }}
-            </h1>
-            <p class="mt-5 max-w-3xl text-[1.125rem] leading-8 text-[var(--color-muted-text)] md:text-[1.2rem]">
-                {{ $t(
-                    'Gunakan aplikasi ini saat kamu menghadapi masalah seperti ditipu saat belanja online, isi kontrak kerja yang mencurigakan, ancaman debt collector, pemanggilan polisi, atau saat butuh tahu hak dasar sebelum bicara dengan pihak lain.',
-                    'Use this app when you face problems such as online shopping fraud, suspicious work contracts, debt collector threats, police summons, or when you need to know your basic rights before speaking to other parties.'
-                ) }}
-            </p>
+                    <div class="bela-live-hero-visual" aria-label="Mockup dashboard BELA">
+                        <div class="bela-live-dashboard">
+                            <div class="bela-live-dashboard-top">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="bela-live-dashboard-main">
+                                <div class="bela-live-doc-preview">
+                                    <p class="title">Kontrak Kerja - Ringkasan</p>
+                                    <div class="line long"></div>
+                                    <div class="line"></div>
+                                    <div class="line warn"></div>
+                                    <div class="line"></div>
+                                </div>
+                                <div class="bela-live-insight-panel">
+                                    <p class="chip">Risiko Tinggi</p>
+                                    <p class="chip ok">Hak Karyawan</p>
+                                    <div class="mini-bars"><i></i><i></i><i></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <article class="bela-live-float-card one">
+                            <h3>Alert Klausul</h3>
+                            <p>Potongan gaji sepihak terdeteksi.</p>
+                        </article>
+                        <article class="bela-live-float-card two">
+                            <h3>Insight Cepat</h3>
+                            <p>3 pasal penting untuk kamu cek dulu.</p>
+                        </article>
+                    </div>
+                </section>
 
-            <form action="{{ route('ai-chat') }}" method="GET" class="mt-8">
-                <input type="hidden" name="lang" value="{{ $lang }}">
-                <label for="issue" class="eyebrow">{{ $t('Apa masalahmu hari ini?', 'What problem are you facing today?') }}</label>
-                <div class="search-shell mt-3">
-                    <input
-                        id="issue"
-                        name="q"
-                        type="text"
-                        class="search-input"
-                        value="{{ request('q') }}"
-                        placeholder="{{ $t('Contoh: saya ditipu online, kontrak kerja saya aneh, saya dipanggil polisi', 'Example: I was scammed online, my work contract looks strange, I was summoned by the police') }}"
-                    >
+                <section class="bela-live-section bela-live-section-plain" id="masalah">
+                    <div class="bela-live-section-head center">
+                        <p class="bela-live-kicker">Masalah Nyata</p>
+                        <h2>Banyak orang bingung saat berhadapan dengan hukum.</h2>
+                    </div>
+                    <div class="bela-live-problem-grid">
+                        <article class="bela-live-problem-card">
+                            <div class="icon-wrap">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm0 5v5M12 16h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                            </div>
+                            <h3>Dokumen Rumit</h3>
+                            <p>Sulit paham isi dokumen panjang.</p>
+                        </article>
+                        <article class="bela-live-problem-card">
+                            <div class="icon-wrap">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 21h14M7 21V8l5-5 5 5v13M10 12h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <h3>Situasi Aparat</h3>
+                            <p>Tidak tahu hak saat kondisi mendadak.</p>
+                        </article>
+                        <article class="bela-live-problem-card">
+                            <div class="icon-wrap">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16v10H7l-3 3V6Zm4 4h8M8 13h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <h3>Kebingungan Online</h3>
+                            <p>Kasus viral ramai, solusi tetap tidak jelas.</p>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="bela-live-section bela-live-section-plain" id="fitur">
+                    <div class="bela-live-section-head">
+                        <p class="bela-live-kicker">Fitur Utama</p>
+                        <h2>Visual dulu, paham lebih cepat.</h2>
+                    </div>
+                    <div class="bela-live-feature-grid">
+                        <article class="bela-live-feature-card">
+                            <div class="feature-icon">🔍</div>
+                            <h3>Scan Legal Document</h3>
+                            <p>Ringkasan otomatis dokumen.</p>
+                            <div class="mini-ui scan"><span></span><span></span><span></span></div>
+                        </article>
+                        <article class="bela-live-feature-card">
+                            <div class="feature-icon">📚</div>
+                            <h3>Tau Hukum</h3>
+                            <p>Hakmu dijelaskan tanpa ribet.</p>
+                            <div class="mini-ui law"><span></span><span></span><span></span></div>
+                        </article>
+                        <article class="bela-live-feature-card">
+                            <div class="feature-icon">📢</div>
+                            <h3>Justice Viral</h3>
+                            <p>Suarakan kasus dan dukungan publik.</p>
+                            <div class="mini-ui feed"><span></span><span></span><span></span></div>
+                        </article>
+                        <article class="bela-live-feature-card">
+                            <div class="feature-icon">💬</div>
+                            <h3>HaloHukum</h3>
+                            <p>Diskusi cepat dengan komunitas.</p>
+                            <div class="mini-ui chat"><span></span><span></span><span></span></div>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="bela-live-section bela-live-section-soft" id="cara-kerja">
+                    <div class="bela-live-section-head">
+                        <p class="bela-live-kicker">Cara Kerja</p>
+                        <h2>Empat langkah yang langsung terasa.</h2>
+                    </div>
+                    <div class="bela-live-steps">
+                        <article class="step"><i>1</i><p>Pilih kebutuhan</p></article>
+                        <article class="step"><i>2</i><p>Gunakan fitur</p></article>
+                        <article class="step"><i>3</i><p>Dapatkan insight</p></article>
+                        <article class="step"><i>4</i><p>Ambil tindakan</p></article>
+                    </div>
+                </section>
+
+                <section class="bela-live-section bela-live-section-plain" id="showcase">
+                    <div class="bela-live-section-head">
+                        <p class="bela-live-kicker">Feature Showcase</p>
+                        <h2>Mockup produk yang terasa nyata.</h2>
+                    </div>
+                    <div class="bela-live-showcase">
+                        <article class="row">
+                            <div class="mock large doc"></div>
+                            <div class="copy"><h3>Hasil scan langsung terbaca</h3><p>Highlight risiko, pasal penting, dan rekomendasi langkah muncul dalam satu layar.</p></div>
+                        </article>
+                        <article class="row reverse">
+                            <div class="mock large edu"></div>
+                            <div class="copy"><h3>Belajar hukum berbasis situasi</h3><p>Konten modular: pilih kasus, lihat hakmu, simpan checklist tindakan.</p></div>
+                        </article>
+                        <article class="row">
+                            <div class="mock large forum"></div>
+                            <div class="copy"><h3>Forum diskusi yang terarah</h3><p>Pertanyaan, balasan, dan insight komunitas dirangkum supaya keputusan lebih cepat.</p></div>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="bela-live-section bela-live-section-plain" id="viral">
+                    <div class="bela-live-viral-layout">
+                        <div class="bela-live-viral-feed">
+                            <article class="viral-card"><h3>Kontrak magang tanpa honor</h3><p><span class="count">1.2k</span> upvote · 340 komentar</p></article>
+                            <article class="viral-card"><h3>Penagihan debt collector berlebihan</h3><p><span class="count">980</span> upvote · 221 komentar</p></article>
+                            <article class="viral-card"><h3>Penyalahgunaan data pribadi</h3><p><span class="count">2.1k</span> upvote · 410 komentar</p></article>
+                        </div>
+                        <div class="bela-live-viral-copy">
+                            <p class="bela-live-kicker">Justice Viral</p>
+                            <h2>Buat isu penting lebih terlihat.</h2>
+                            <p>Kasus yang relevan bisa naik bersama dukungan publik agar lebih cepat ditindaklanjuti.</p>
+                            <a href="{{ $routeLang('ai-chat') }}" class="bela-live-btn bela-live-btn-primary">Lihat Topik Viral</a>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="bela-live-section bela-live-section-soft" id="halohukum">
+                    <div class="bela-live-chat-layout">
+                        <div class="bela-live-chat-copy">
+                            <p class="bela-live-kicker">HaloHukum</p>
+                            <h2>Tanya, diskusi, dan dapatkan arahan awal.</h2>
+                            <p>UI chat dirancang seperti percakapan sehari-hari agar nyaman untuk pengguna umum.</p>
+                            <a href="{{ $routeLang('contact') }}" class="bela-live-btn bela-live-btn-soft">Masuk HaloHukum</a>
+                        </div>
+                        <div class="bela-live-chat-ui" aria-label="Mockup chat">
+                            <div class="msg from">Saya baru dapat surat somasi, harus mulai dari mana?</div>
+                            <div class="msg to">Tenang. Kita mulai dari cek isi pasal dan tenggat waktunya dulu.</div>
+                            <div class="msg from">Kalau saya belum paham isi suratnya?</div>
+                            <div class="msg to">Upload dokumennya ke Scan Legal Document, lalu kita bahas hasilnya.</div>
+                            <div class="typing"><span></span><span></span><span></span></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="bela-live-cta" id="cta">
+                    <div class="icon">⚖</div>
+                    <h2>Jangan hadapi masalah hukum sendirian.</h2>
+                    <p>Mulai sekarang dan rasakan pengalaman hukum yang lebih jelas, ramah, dan bisa ditindaklanjuti.</p>
+                    <a href="{{ $routeLang('auth.landing') }}" class="bela-live-btn bela-live-btn-primary glow">Mulai Sekarang</a>
+                </section>
+            </main>
+
+            <footer class="bela-live-footer">
+                <div class="bela-live-container bela-live-footer-inner">
+                    <p>© {{ now()->year }} BELA</p>
+                    <div class="bela-live-footer-links">
+                        <a href="#hero">Tentang</a>
+                        <a href="{{ $routeLang('contact') }}">Kontak</a>
+                        <a href="#">Privasi</a>
+                    </div>
+                    <p class="disc">BELA bersifat edukatif dan bukan pengganti nasihat hukum profesional.</p>
                 </div>
-                <p class="mt-3 text-[1rem] text-[var(--color-muted-text)]">
-                    {{ $t(
-                        'Contoh: uang tidak dikembalikan, gaji ditahan, diminta tanda tangan cepat, atau menerima ancaman lewat chat.',
-                        'Example: my money was not returned, my salary was withheld, I was rushed to sign, or I received threats over chat.'
-                    ) }}
-                </p>
-            </form>
-
-            <div class="mt-4">
-                <p class="eyebrow">{{ $t('Pilih contoh masalah', 'Choose a sample problem') }}</p>
-                <div class="suggestion-chip-wrap mt-3">
-                    @foreach ($aiSuggestions as $suggestion)
-                        <a href="{{ $routeLang('ai-chat', ['preset' => $suggestion['preset']]) }}" class="quick-chip">
-                            {{ $suggestion['label'] }}
-                        </a>
-                    @endforeach
-                </div>
-            </div>
-
-            <div class="mt-4 flex flex-wrap gap-3">
-                <a href="{{ $routeLang('ai-chat', ['preset' => 'penipuan-online']) }}" class="quick-chip">{{ $t('Lihat contoh jawaban AI', 'See a sample AI answer') }}</a>
-                <a href="{{ $routeLang('document-scan') }}" class="quick-chip">{{ $t('Saya ingin cek kontrak', 'I want to review a contract') }}</a>
-                <a href="{{ $routeLang('action-guide') }}" class="quick-chip">{{ $t('Saya perlu langkah cepat', 'I need quick steps') }}</a>
-            </div>
-
-            <div class="hero-actions mt-6">
-                <a href="{{ $routeLang('ai-chat', ['preset' => 'penipuan-online']) }}" class="action-card ai">
-                    <span class="action-icon">&#129302;</span>
-                    <p class="mt-4 font-[var(--font-display)] text-[1.45rem] font-extrabold text-[var(--color-primary)]">{{ $t('Tanya AI', 'Ask AI') }}</p>
-                    <p class="mt-2 max-w-[16rem] text-[1rem] leading-7 text-[var(--color-muted-text)]">
-                        {{ $t(
-                            'Cocok untuk kasus penipuan online, utang, sengketa kerja, dan pertanyaan hak dasar.',
-                            'Useful for online fraud, debt collection, work disputes, and basic rights questions.'
-                        ) }}
-                    </p>
-                </a>
-                <a href="{{ $routeLang('action-guide') }}" class="action-card guide">
-                    <span class="action-icon">&#129517;</span>
-                    <p class="mt-4 font-[var(--font-display)] text-[1.45rem] font-extrabold text-[var(--color-primary)]">{{ $t('Panduan Langkah', 'Action Guide') }}</p>
-                    <p class="mt-2 max-w-[16rem] text-[1rem] leading-7 text-[var(--color-muted-text)]">
-                        {{ $t(
-                            'Ikuti checklist untuk kumpulkan bukti, catat kronologi, dan siapkan laporan.',
-                            'Follow a checklist to collect evidence, record the timeline, and prepare a report.'
-                        ) }}
-                    </p>
-                </a>
-                <a href="{{ $routeLang('emergency') }}" class="action-card emergency">
-                    <span class="action-icon">&#128680;</span>
-                    <p class="mt-4 font-[var(--font-display)] text-[1.45rem] font-extrabold text-[var(--color-primary)]">{{ $t('Darurat', 'Emergency') }}</p>
-                    <p class="mt-2 max-w-[16rem] text-[1rem] leading-7 text-[var(--color-muted-text)]">
-                        {{ $t(
-                            'Buka jika kamu sedang ditekan, dipaksa, diperiksa, atau tidak sempat membaca panjang.',
-                            'Open this if you are under pressure, being forced, being questioned, or do not have time to read a long page.'
-                        ) }}
-                    </p>
-                </a>
-            </div>
-
-            <div class="hero-proof mt-7">
-                <article class="hero-proof-card">
-                    <p class="eyebrow">{{ $t('Kasus Umum', 'Common Case') }}</p>
-                    <p class="mt-2 text-[1.35rem] font-[var(--font-display)] font-extrabold text-[var(--color-primary)]">{{ $t('Penipuan online dan transaksi gagal', 'Online fraud and failed transactions') }}</p>
-                </article>
-                <article class="hero-proof-card">
-                    <p class="eyebrow">{{ $t('Kasus Umum', 'Common Case') }}</p>
-                    <p class="mt-2 text-[1.35rem] font-[var(--font-display)] font-extrabold text-[var(--color-primary)]">{{ $t('Kontrak kerja atau surat yang janggal', 'Questionable contracts or letters') }}</p>
-                </article>
-                <article class="hero-proof-card">
-                    <p class="eyebrow">{{ $t('Kasus Umum', 'Common Case') }}</p>
-                    <p class="mt-2 text-[1.35rem] font-[var(--font-display)] font-extrabold text-[var(--color-primary)]">{{ $t('Panggilan polisi atau tekanan mendadak', 'Police summons or sudden pressure') }}</p>
-                </article>
-            </div>
+            </footer>
         </div>
-
-        <aside class="hero-side">
-            <article class="glow-panel">
-                <p class="eyebrow">{{ $t('Masalah yang Bisa Ditangani', 'Problems This App Can Handle') }}</p>
-                <h2 class="mt-3 text-[2rem] text-[var(--color-primary)]">{{ $t('Mulai dari masalah nyata yang sering dialami pengguna.', 'Start from real problems that people often face.') }}</h2>
-                <ol class="mt-5 grid gap-4 text-[1.05rem] text-[var(--color-muted-text)]">
-                    <li class="hero-flow-item"><span>01</span> {{ $t('Ditipu online, barang tidak datang, rekening tujuan menghilang, atau chat penjual mengancam.', 'Online fraud, items not arriving, destination accounts disappearing, or threatening seller chats.') }}</li>
-                    <li class="hero-flow-item"><span>02</span> {{ $t('Kontrak kerja, surat pernyataan, atau perjanjian pinjaman yang ingin dicek sebelum ditandatangani.', 'Work contracts, statement letters, or loan agreements that need review before signing.') }}</li>
-                    <li class="hero-flow-item"><span>03</span> {{ $t('Situasi mendesak seperti diperiksa, dipaksa mengaku, atau tidak tahu hak apa yang harus dijaga.', 'Urgent situations such as being questioned, being pressured to confess, or not knowing which rights must be protected.') }}</li>
-                </ol>
-            </article>
-
-            <article class="tool-overview-card">
-                <div class="tool-overview-item">
-                    <p class="eyebrow">{{ $t('Respon Awal', 'First Response') }}</p>
-                    <p class="mt-3 mini-stat-value">AI</p>
-                    <p class="mt-2 text-[1rem] text-[var(--color-muted-text)]">{{ $t('Ceritakan masalahmu lalu baca ringkasan awal dan risiko utamanya.', 'Describe your problem and read the first summary and its main risks.') }}</p>
-                </div>
-                <div class="tool-overview-item">
-                    <p class="eyebrow">{{ $t('Panduan Kasus', 'Case Guide') }}</p>
-                    <p class="mt-3 mini-stat-value">{{ $t('Guide', 'Guide') }}</p>
-                    <p class="mt-2 text-[1rem] text-[var(--color-muted-text)]">{{ $t('Ikuti urutan langkah, bukti, dan tindakan yang perlu disiapkan.', 'Follow the order of steps, evidence, and actions that must be prepared.') }}</p>
-                </div>
-                <div class="tool-overview-item">
-                    <p class="eyebrow">{{ $t('Analisis Dokumen', 'Document Analysis') }}</p>
-                    <p class="mt-3 mini-stat-value">{{ $t('Scan', 'Scan') }}</p>
-                    <p class="mt-2 text-[1rem] text-[var(--color-muted-text)]">{{ $t('Periksa klausul yang aman, perlu dibaca ulang, atau berpotensi merugikan.', 'Review clauses that are safe, require caution, or may be harmful.') }}</p>
-                </div>
-            </article>
-        </aside>
-    </section>
-
-    <section class="mx-auto mt-6 feature-grid max-w-6xl">
-        <article class="feature-panel feature-panel-primary">
-            <p class="eyebrow">{{ $t('Masalah Hukum yang Sering Dicari', 'Common Legal Questions') }}</p>
-            <h2 class="mt-3 text-[2rem] text-[var(--color-primary)]">{{ $t('Pengguna biasanya datang dengan kasus yang sederhana diucapkan, tetapi rumit saat dijelaskan sendiri.', 'People usually arrive with problems that are easy to say but hard to explain alone.') }}</h2>
-            <div class="feature-list mt-5">
-                <div class="feature-list-item">
-                    <span class="feature-dot"></span>
-                    <div>
-                        <p class="font-[var(--font-display)] text-[1.25rem] font-bold text-[var(--color-primary)]">{{ $t('"Saya ditipu transfer"', '"I was scammed by bank transfer"') }}</p>
-                        <p class="mt-1 text-[1rem] text-[var(--color-muted-text)]">{{ $t('Cari langkah awal seperti simpan bukti transfer, chat, dan identitas akun tujuan.', 'Get the first steps such as saving transfer proof, chats, and the destination account identity.') }}</p>
-                    </div>
-                </div>
-                <div class="feature-list-item">
-                    <span class="feature-dot"></span>
-                    <div>
-                        <p class="font-[var(--font-display)] text-[1.25rem] font-bold text-[var(--color-primary)]">{{ $t('"Kontrak ini aman tidak?"', '"Is this contract safe?"') }}</p>
-                        <p class="mt-1 text-[1rem] text-[var(--color-muted-text)]">{{ $t('Gunakan scan dokumen untuk melihat klausul denda, penalti, dan kewajiban sepihak.', 'Use document scan to spot penalty clauses, fines, and one-sided obligations.') }}</p>
-                    </div>
-                </div>
-                <div class="feature-list-item">
-                    <span class="feature-dot"></span>
-                    <div>
-                        <p class="font-[var(--font-display)] text-[1.25rem] font-bold text-[var(--color-primary)]">{{ $t('"Saya dipanggil polisi, harus bagaimana?"', '"I was summoned by the police, what should I do?"') }}</p>
-                        <p class="mt-1 text-[1rem] text-[var(--color-muted-text)]">{{ $t('Masuk ke mode darurat untuk melihat hak yang harus dijaga dan langkah aman berikutnya.', 'Enter emergency mode to see which rights you must protect and the safest next step.') }}</p>
-                    </div>
-                </div>
-            </div>
-        </article>
-
-        <article class="feature-panel">
-            <p class="eyebrow">{{ $t('Apa yang Bisa Dilakukan di Aplikasi Ini', 'What You Can Do in This App') }}</p>
-            <h2 class="mt-3 text-[2rem] text-[var(--color-primary)]">{{ $t('Fitur dibuat untuk membantu pengguna bergerak dari bingung menjadi siap bertindak.', 'The features are designed to help users move from confusion to action.') }}</h2>
-            <div class="feature-list mt-5">
-                <div class="feature-list-item">
-                    <span class="feature-dot"></span>
-                    <div>
-                        <p class="font-[var(--font-display)] text-[1.25rem] font-bold text-[var(--color-primary)]">{{ $t('Tanya AI dengan bahasa sehari-hari', 'Ask AI in plain language') }}</p>
-                        <p class="mt-1 text-[1rem] text-[var(--color-muted-text)]">{{ $t('Tidak perlu istilah hukum. Tulis kejadian, pihak yang terlibat, dan apa yang kamu takutkan.', 'No legal jargon needed. Write the event, the parties involved, and what you are worried about.') }}</p>
-                    </div>
-                </div>
-                <div class="feature-list-item">
-                    <span class="feature-dot"></span>
-                    <div>
-                        <p class="font-[var(--font-display)] text-[1.25rem] font-bold text-[var(--color-primary)]">{{ $t('Ikuti panduan langkah', 'Follow the action guide') }}</p>
-                        <p class="mt-1 text-[1rem] text-[var(--color-muted-text)]">{{ $t('Checklist membantu pengguna tahu bukti apa yang harus disimpan dan ke mana harus melapor.', 'The checklist helps users know which evidence to save and where to report.') }}</p>
-                    </div>
-                </div>
-                <div class="feature-list-item">
-                    <span class="feature-dot"></span>
-                    <div>
-                        <p class="font-[var(--font-display)] text-[1.25rem] font-bold text-[var(--color-primary)]">{{ $t('Periksa dokumen sebelum tanda tangan', 'Review documents before signing') }}</p>
-                        <p class="mt-1 text-[1rem] text-[var(--color-muted-text)]">{{ $t('Scan dokumen menyorot bagian yang perlu dibaca ulang sebelum pengguna membuat keputusan.', 'Document scan highlights parts that should be reviewed before a decision is made.') }}</p>
-                    </div>
-                </div>
-            </div>
-        </article>
-    </section>
-@endsection
+    </body>
+</html>
