@@ -22,7 +22,7 @@
 
     <section class="mx-auto hero-grid max-w-6xl">
         <div class="hero-card px-5 py-7 md:px-8 md:py-10">
-            <h1 class="mt-5 max-w-4xl text-[2.8rem] text-[var(--color-primary)] md:text-[4.6rem]">
+            <h1 class="mt-4 max-w-4xl text-[2.25rem] leading-[1.02] text-[var(--color-primary)] md:mt-5 md:text-[4.6rem]">
                 {{ $t(
                     'Mulai dari situasi yang kamu alami, bukan dari istilah hukum yang rumit.',
                     'Start from the situation you are facing, not from complicated legal terms.'

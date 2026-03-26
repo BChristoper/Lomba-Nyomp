@@ -14,9 +14,29 @@ const syncLanguage = () => {
             return;
         }
 
+        const currentLanguage = currentUrl.searchParams.get('lang') || document.body.dataset.currentLang;
+
+        if (currentLanguage === language) {
+            if (modal) {
+                modal.hidden = true;
+            }
+
+            return;
+        }
+
         window.localStorage.setItem(storageKey, language);
         currentUrl.searchParams.set('lang', language);
-        window.location.assign(currentUrl.toString());
+
+        document.documentElement.classList.add('language-is-switching');
+
+        const navigate = () => window.location.assign(currentUrl.toString());
+
+        if (document.startViewTransition) {
+            document.startViewTransition(navigate);
+            return;
+        }
+
+        window.setTimeout(navigate, 120);
     };
 
     document.querySelectorAll('[data-language-option]').forEach((button) => {

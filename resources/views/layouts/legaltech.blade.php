@@ -17,6 +17,34 @@
                 'A legal-tech app that helps people understand legal problems in calm, clear language with actionable next steps.'
             ) }}"
         >
+        <style>
+            html:not([data-lang-ready="true"]) body {
+                opacity: 0;
+            }
+        </style>
+        <script>
+            (() => {
+                const supported = ['id', 'en'];
+                const key = 'rk_lang';
+                const url = new URL(window.location.href);
+                const queryLanguage = url.searchParams.get('lang');
+                const storedLanguage = window.localStorage.getItem(key);
+
+                if (supported.includes(queryLanguage || '')) {
+                    window.localStorage.setItem(key, queryLanguage);
+                    document.documentElement.setAttribute('data-lang-ready', 'true');
+                    return;
+                }
+
+                if (supported.includes(storedLanguage || '')) {
+                    url.searchParams.set('lang', storedLanguage);
+                    window.location.replace(url.toString());
+                    return;
+                }
+
+                document.documentElement.setAttribute('data-lang-ready', 'true');
+            })();
+        </script>
         @vite('resources/js/app.js')
     </head>
     <body class="bg-[var(--color-page)] text-[var(--color-ink)]" data-current-lang="{{ $lang }}">
